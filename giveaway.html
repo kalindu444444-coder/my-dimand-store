@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Giveaways | Gaming M4K Diamond Store</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        /* CSS Overrides & Custom Animations matching Gaming M4K Theme */
+        .brand-logo-img {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #42a5f5;
+            margin-right: 8px;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-socials a {
+            color: #90caf9;
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-socials a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Lucky Spin Wheel Section Styling */
+        .giveaway-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .giveaway-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .wheel-box {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(13, 71, 161, 0.15);
+            border: 1px solid rgba(66, 165, 245, 0.3);
+            border-radius: 16px;
+            padding: 30px 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .wheel-wrapper {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+
+        .wheel-pointer {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 25px solid #ff4081;
+            z-index: 10;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+        }
+
+        canvas#wheel {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            box-shadow: 0 0 25px rgba(66, 165, 245, 0.4), inset 0 0 10px rgba(0,0,0,0.5);
+            border: 4px solid #42a5f5;
+        }
+
+        .spin-btn {
+            background: linear-gradient(135deg, #42a5f5, #1565c0);
+            color: #fff;
+            border: none;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(66, 165, 245, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .spin-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(66, 165, 245, 0.6);
+        }
+
+        .spin-btn:disabled {
+            background: #555;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 13px;
+            color: #90caf9;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #42a5f5;
+        }
+
+        .result-box {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+
+        .result-box.success {
+            background: rgba(46, 125, 50, 0.3);
+            border: 1px solid #4caf50;
+            color: #81c784;
+            display: block;
+        }
+
+        .result-box.error {
+            background: rgba(198, 40, 40, 0.3);
+            border: 1px solid #e57373;
+            color: #ef9a9a;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <a class="brand" href="index.html">
+            <img src="https://i.pinimg.com/736x/51/2d/2f/512d2fa49ba4a8b4f24f50e690d8ded7.jpg" alt="Gaming M4K Logo" class="brand-logo-img">
+            <span>GAMING <b>M4K</b><small>DIAMOND STORE</small></span>
+        </a>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Store</a>
+            <a href="topup.html">Quick Top-Up</a>
+            <a class="active" href="giveaway.html">Giveaways</a>
+            <a href="login.html">Login</a>
+            <a class="nav-cta" href="register.html">Create account</a>
+        </nav>
+    </header>
+
+    <main class="page-wrap">
+        <section class="page-intro">
+            <span class="eyebrow">COMMUNITY REWARDS</span>
+            <h1>Spin & Win, <em>Players!</em></h1>
+            <p>Enter your Game Player ID and spin the wheel for a chance to win Free Diamonds & Rewards sent directly to your account.</p>
+        </section>
+
+        <!-- GIVEAWAY SPIN WHEEL SECTION -->
+        <div class="giveaway-container">
+            <div class="wheel-box">
+                <div class="wheel-pointer"></div>
+                <div class="wheel-wrapper">
+                    <canvas id="wheel" width="300" height="300"></canvas>
+                </div>
+                <button id="spinBtn" class="spin-btn">SPIN WHEEL 🎡</button>
+            </div>
+
+            <div class="giveaway-info" style="background: rgba(10, 25, 47, 0.6); padding: 25px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <span class="tag">DAILY FREE REWARDS</span>
+                <h2 style="margin-top: 10px;">Claim Your Rewards</h2>
+                <p style="color: #a0aec0; font-size: 14px; margin-bottom: 20px;">Enter your Player ID before spinning. Rewards will be delivered to your in-game mailbox within 24 hours.</p>
+
+                <form id="giveawayForm" onsubmit="return false;">
+                    <div class="input-group">
+                        <label for="playerId">Free Fire Player ID (UID):</label>
+                        <input type="text" id="playerId" placeholder="e.g. 123456789" required>
+                    </div>
+
+                    <div id="resultMessage" class="result-box"></div>
+                </form>
+
+                <ul style="margin-top: 20px; font-size: 13px; color: #a0aec0; padding-left: 20px;">
+                    <li>එක් Player ID එකක් සඳහා සෑම පැය 48කට වරක්ම එක් වරක් කරකැවිය හැක.</li>
+                    <li>දියමන්ති සහ අයිතම In-Game Mail මගින් යවනු ලැබේ.</li>
+                    <li>ඔබේ ගිණුමේ මුරපදය කිසිවකු සමඟ බෙදා නොගන්න.</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="banner">
+            <div>
+                <span class="eyebrow">STAY IN THE LOOP</span>
+                <h2>New rewards, announced clearly.</h2>
+                <p>Join our Telegram community for giveaway alerts & special redeem codes.</p>
+            </div>
+            <a class="btn glass" href="https://t.me" target="_blank">Join Telegram ↗</a>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer">
+        <a class="brand" href="index.html">
+            <img src="https://i.pinimg.com/736x/51/2d/2f/512d2fa49ba4a8b4f24f50e690d8ded7.jpg" alt="Gaming M4K Logo" class="brand-logo-img">
+            <span>GAMING <b>M4K</b><small>DIAMOND STORE</small></span>
+        </a>
+        <p>Independent digital top-up store concept by Gaming M4K Store. Game trademarks belong to their respective owners.</p>
+        
+        <!-- Social Media Links -->
+        <div class="footer-socials">
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://whatsapp.com" target="_blank">WhatsApp</a>
+            <a href="https://t.me" target="_blank">Telegram</a>
+        </div>
+
+        <div style="margin-top: 15px;">
+            <a href="shop.html">Store</a>
+            <a href="topup.html">Top-Up</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <small>© 2026 Gaming M4K Store. All rights reserved.</small>
+    </footer>
+
+    <script src="assets/app.js"></script>
+    <script>
+        // SPIN WHEEL LOGIC
+        const canvas = document.getElementById('wheel');
+        const ctx = canvas.getContext('2d');
+        const spinBtn = document.getElementById('spinBtn');
+        const resultMsg = document.getElementById('resultMessage');
+
+        const rewards = [
+            { label: '10 Diamonds 💎', color: '#1e88e5' },
+            { label: 'Better Luck! 7474f' },
+            { label: 'Weapon Royale 🎟️', color: '#d81b60' },
+            { label: '5 Diamonds 💎', color: '#00acc1' },
+            { label: 'Try Again 🔄', color: '#546e7a' },
+            { label: 'Room Card 🃏', color: '#8e24aa' }
+        ];
+
+        const numSegments = rewards.length;
+        const arcSize = (2 * Math.PI) / numSegments;
+        let startAngle = 0;
+        let isSpinning = false;
+
+        function drawWheel() {
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = canvas.width / 2;
+
+            for (let i = 0; i < numSegments; i++) {
+                const angle = startAngle + i * arcSize;
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius, angle, angle + arcSize);
+                ctx.lineTo(centerX, centerY);
+                ctx.fillStyle = rewards[i].color;
+                ctx.fill();
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = '#0d1b2a';
+                ctx.stroke();
+
+                // Draw Text
+                ctx.save();
+                ctx.translate(centerX, centerY);
+                ctx.rotate(angle + arcSize / 2);
+                ctx.textAlign = "right";
+                ctx.fillStyle = "#ffffff";
+                ctx.font = "bold 13px sans-serif";
+                ctx.fillText(rewards[i].label, radius - 15, 5);
+                ctx.restore();
+            }
+        }
+
+        drawWheel();
+
+        spinBtn.addEventListener('click', () => {
+            const playerId = document.getElementById('playerId').value.trim();
+            if (!playerId) {
+                resultMsg.className = 'result-box error';
+                resultMsg.innerText = 'කරුණාකර ප්‍රථමයෙන් ඔබගේ Player ID එක ඇතුළත් කරන්න!';
+                return;
+            }
+
+            if (isSpinning) return;
+            isSpinning = true;
+            spinBtn.disabled = true;
+            resultMsg.className = 'result-box';
+            resultMsg.style.display = 'none';
+
+            const spinRounds = 5 + Math.floor(Math.random() * 5);
+            const randomSegment = Math.floor(Math.random() * numSegments);
+            const targetAngle = spinRounds * 2 * Math.PI + (numSegments - randomSegment - 0.5) * arcSize;
+            
+            let currentRotation = 0;
+            const duration = 4000;
+            const startTime = performance.now();
+
+            function animate(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                
+                startAngle = easeOut * targetAngle;
+                drawWheel();
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    isSpinning = false;
+                    spinBtn.disabled = false;
+                    const wonReward = rewards[randomSegment].label;
+
+                    resultMsg.className = 'result-box success';
+                    resultMsg.innerText = `සුභ පැතුම්! ඔබ ${wonReward} දිනාගත්තා!`;
+                }
+            }
+
+            requestAnimationFrame(animate);
+        });
+    </script>
+</body>
+</html>

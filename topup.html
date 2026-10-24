@@ -1,0 +1,1000 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gaming M4K Diamond Store | Quick Top-Up</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <!-- FontAwesome icons for Social Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Overrides for Gaming M4K Top-Up Page */
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --accent-color: #0d47a1;
+            --secondary-color: #2563eb;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --footer-bg: #020b17;
+            --footer-text: #94a3b8;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 1. Header & Brand Logo */
+        .brand-logo-img {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #42a5f5;
+            margin-right: 8px;
+        }
+
+        /* 2. Topup Hero Section */
+        .topup-hero-card {
+            background: linear-gradient(145deg, rgba(3, 16, 33, 0.9), rgba(1, 5, 10, 0.95)), 
+                        url('https://images.wallpapersden.com/image/download/free-fire-2023-gaming_bmZqaW6UmZqaraWkpJRmbmdlrWZlbWU.jpg') center/cover no-repeat;
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .topup-hero-card h1 {
+            font-size: 26px;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .topup-hero-card p {
+            font-size: 13px;
+            color: #cbd5e1;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        /* 3. Centered Player Verification Card */
+        .verification-card {
+            max-width: 520px;
+            margin: 0 auto 25px auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+            text-align: center;
+        }
+
+        .step-title-centered {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .step-badge {
+            background: var(--secondary-color);
+            color: #fff;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .verify-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .verify-input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            text-align: center;
+        }
+
+        .verify-input:focus {
+            border-color: var(--secondary-color);
+        }
+
+        .verify-btn {
+            background: var(--secondary-color);
+            color: #fff;
+            border: none;
+            padding: 0 22px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* 4. Two-Column Layout */
+        .topup-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .section-header {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 20px 0 12px 0;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .pkg-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .pkg-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--secondary-color);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        }
+
+        .pkg-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #ef4444;
+            color: #fff;
+            font-size: 9px;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .pkg-img {
+            width: 80px;
+            height: 60px;
+            object-fit: contain;
+            margin: 6px auto;
+            display: block;
+        }
+
+        .pkg-title {
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .pkg-old-price {
+            font-size: 10px;
+            color: #94a3b8;
+            text-decoration: line-through;
+        }
+
+        .pkg-price {
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Quantity Counter */
+        .counter-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #f1f5f9;
+            padding: 4px;
+            border-radius: 6px;
+        }
+
+        .counter-btn {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            width: 26px;
+            height: 26px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .counter-value {
+            font-size: 12px;
+            font-weight: bold;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* 5. Sticky Sidebar: Dynamic Cart */
+        .order-sidebar {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            position: sticky;
+            top: 90px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .cart-items-container {
+            margin: 15px 0;
+            max-height: 220px;
+            overflow-y: auto;
+            border-top: 1px dashed var(--border-color);
+            border-bottom: 1px dashed var(--border-color);
+            padding: 10px 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .cart-item-title {
+            font-weight: 600;
+        }
+
+        .cart-item-price {
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        .empty-cart-msg {
+            font-size: 12px;
+            color: #94a3b8;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .total-price-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+            font-weight: 800;
+            margin: 15px 0 12px 0;
+            color: var(--accent-color);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: #16a34a;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .checkout-btn:hover {
+            background: #15803d;
+        }
+
+        /* Payment Methods Section Styling (Matching User Screenshot Theme) */
+        .payment-methods-wrapper {
+            margin-top: 20px;
+            border-top: 2px solid var(--border-color);
+            padding-top: 15px;
+        }
+
+        .pay-method-box {
+            background: #1e1b4b;
+            border: 1px solid #312e81;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .pay-method-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #f8fafc;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pay-banner-img {
+            background: linear-gradient(135deg, #4f46e5, #9333ea);
+            border-radius: 6px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .pay-banner-img img {
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .pay-action-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .pay-amount-display {
+            background: #fff;
+            color: #0f172a;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .pay-now-action-btn {
+            background: #ef4444;
+            color: #fff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .pay-now-action-btn:hover {
+            background: #dc2626;
+        }
+
+        .payment-instruction {
+            font-size: 10px;
+            color: #cbd5e1;
+            margin-top: 4px;
+            line-height: 1.3;
+        }
+
+        .terms-check-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: #e2e8f0;
+            margin-top: 6px;
+        }
+
+        .or-divider {
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+            color: #64748b;
+            margin: 8px 0;
+        }
+
+        /* Footer & Social Icons */
+        .footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        .footer a {
+            color: var(--footer-text);
+            text-decoration: none;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: #1e293b;
+            color: #fff;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 14px;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            background: var(--secondary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .topup-layout {
+                grid-template-columns: 1fr;
+            }
+            .order-sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .verify-row {
+                flex-direction: column;
+            }
+            .verify-btn {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SITE HEADER -->
+    <header class="site-header" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; background: #fff; border-bottom: 1px solid var(--border-color);">
+        <a class="brand" href="index.html" style="display: flex; align-items: center; text-decoration: none; color: #1e293b; font-weight: bold;">
+            <img src="https://i.pinimg.com/736x/51/2d/2f/512d2fa49ba4a8b4f24f50e690d8ded7.jpg" alt="Gaming M4K Logo" class="brand-logo-img">
+            <span>GAMING <b>M4K</b><small style="display:block; font-size:9px; color:#64748b;">DIAMOND STORE</small></span>
+        </a>
+        <nav class="nav" style="display: flex; gap: 20px; align-items: center;">
+            <a href="index.html" style="text-decoration: none; color: #64748b; font-size: 14px;">Home</a>
+            <a href="shop.html" style="text-decoration: none; color: #64748b; font-size: 14px;">Store</a>
+            <a class="active" href="topup.html" style="text-decoration: none; color: var(--secondary-color); font-weight: bold; font-size: 14px;">Quick Top-Up</a>
+            <a href="giveaway.html" style="text-decoration: none; color: #64748b; font-size: 14px;">Giveaways</a>
+            <a href="login.html" style="text-decoration: none; color: #64748b; font-size: 14px;">Login</a>
+            <a class="nav-cta" href="register.html" style="background: var(--secondary-color); color: #fff; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: bold;">Create account</a>
+        </nav>
+    </header>
+
+    <main class="page-wrap" style="max-width: 1100px; margin: 20px auto; padding: 0 15px;">
+        
+        <!-- TOPUP HERO BANNER -->
+        <div class="topup-hero-card">
+            <h1>Free Fire Diamond Top-Up</h1>
+            <p>Verify your Player ID, choose your favorite packages and complete your order easily.</p>
+        </div>
+
+        <!-- STEP 1: CENTERED PLAYER VERIFICATION -->
+        <div class="verification-card">
+            <div class="step-title-centered">
+                <span class="step-badge">1</span> Player Verification
+            </div>
+            <div class="verify-row">
+                <input type="text" id="player-id-input" class="verify-input" placeholder="Enter Player ID (1–14 digits)">
+                <button class="verify-btn" onclick="verifyPlayer()">Verify</button>
+            </div>
+            <div id="verify-msg" style="font-size: 11px; margin-top: 6px; display: none;"></div>
+        </div>
+
+        <!-- MAIN LAYOUT (LEFT: PACKAGES, RIGHT: CART SIDEBAR) -->
+        <div class="topup-layout">
+            
+            <!-- LEFT COLUMN: PACKAGES -->
+            <div class="packages-column">
+                
+                <!-- SECTION 1: MEMBERSHIP PACKAGES -->
+                <div class="section-header">
+                    <span class="step-badge">2</span> Membership Packages
+                </div>
+                <div class="packages-grid">
+                    
+                    <!-- Weekly Lite -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Weekly Lite', 119)">
+                        <span class="pkg-badge">8% OFF</span>
+                        <img src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/rebate/0000/004/010/logo.png" alt="Weekly Lite" class="pkg-img">
+                        <div class="pkg-title">Weekly Lite</div>
+                        <div class="pkg-old-price">129.35 LKR</div>
+                        <div class="pkg-price">119.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Weekly Lite', 119)">-</button>
+                            <span class="counter-value" id="qty-Weekly Lite">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Weekly Lite', 119)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Weekly -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Weekly', 550)">
+                        <span class="pkg-badge">2.5% OFF</span>
+                        <img src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/rebate/0000/000/002/logo.png" alt="Weekly" class="pkg-img">
+                        <div class="pkg-title">Weekly</div>
+                        <div class="pkg-old-price">564.10 LKR</div>
+                        <div class="pkg-price">550.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Weekly', 550)">-</button>
+                            <span class="counter-value" id="qty-Weekly">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Weekly', 550)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Monthly -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Monthly', 2750)">
+                        <span class="pkg-badge">3% OFF</span>
+                        <img src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/rebate/0000/000/003/logo.png" alt="Monthly" class="pkg-img">
+                        <div class="pkg-title">Monthly</div>
+                        <div class="pkg-old-price">2,835.05 LKR</div>
+                        <div class="pkg-price">2,750.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Monthly', 2750)">-</button>
+                            <span class="counter-value" id="qty-Monthly">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Monthly', 2750)">+</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- SECTION 2: DIAMOND PACKAGES -->
+                <div class="section-header">
+                    💎 Diamond Packages
+                </div>
+                <div class="packages-grid">
+                    
+                    <!-- Diamond 25 -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Diamond 25', 90)">
+                        <span class="pkg-badge">6.5% OFF</span>
+                        <img src="https://api.duniagames.co.id/api/product/upload/image/77bc158b-a3cd-4130-9689-7d9de7d90e10.png" alt="Diamond 25" class="pkg-img">
+                        <div class="pkg-title">Diamond 25</div>
+                        <div class="pkg-old-price">96.00 LKR</div>
+                        <div class="pkg-price">90.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Diamond 25', 90)">-</button>
+                            <span class="counter-value" id="qty-Diamond 25">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Diamond 25', 90)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Diamond 100 -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Diamond 100', 320)">
+                        <span class="pkg-badge">5% OFF</span>
+                        <img src="https://api.duniagames.co.id/api/product/upload/image/77bc158b-a3cd-4130-9689-7d9de7d90e10.png" alt="Diamond 100" class="pkg-img">
+                        <div class="pkg-title">Diamond 100</div>
+                        <div class="pkg-price">320.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Diamond 100', 320)">-</button>
+                            <span class="counter-value" id="qty-Diamond 100">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Diamond 100', 320)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Diamond 310 -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Diamond 310', 1020)">
+                        <span class="pkg-badge">11% OFF</span>
+                        <img src="https://api.duniagames.co.id/api/product/upload/image/77bc158b-a3cd-4130-9689-7d9de7d90e10.png" alt="Diamond 310" class="pkg-img">
+                        <div class="pkg-title">Diamond 310</div>
+                        <div class="pkg-price">1,020.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Diamond 310', 1020)">-</button>
+                            <span class="counter-value" id="qty-Diamond 310">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Diamond 310', 1020)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Diamond 520 -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Diamond 520', 1699)">
+                        <span class="pkg-badge">5% OFF</span>
+                        <img src="https://api.duniagames.co.id/api/product/upload/image/77bc158b-a3cd-4130-9689-7d9de7d90e10.png" alt="Diamond 520" class="pkg-img">
+                        <div class="pkg-title">Diamond 520</div>
+                        <div class="pkg-price">1,699.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Diamond 520', 1699)">-</button>
+                            <span class="counter-value" id="qty-Diamond 520">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Diamond 520', 1699)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Diamond 1060 -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Diamond 1060', 3360)">
+                        <span class="pkg-badge">4.5% OFF</span>
+                        <img src="https://api.duniagames.co.id/api/product/upload/image/77bc158b-a3cd-4130-9689-7d9de7d90e10.png" alt="Diamond 1060" class="pkg-img">
+                        <div class="pkg-title">Diamond 1060</div>
+                        <div class="pkg-price">3,360.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Diamond 1060', 3360)">-</button>
+                            <span class="counter-value" id="qty-Diamond 1060">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Diamond 1060', 3360)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Diamond 2180 -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Diamond 2180', 6800)">
+                        <span class="pkg-badge">6.5% OFF</span>
+                        <img src="https://api.duniagames.co.id/api/product/upload/image/77bc158b-a3cd-4130-9689-7d9de7d90e10.png" alt="Diamond 2180" class="pkg-img">
+                        <div class="pkg-title">Diamond 2180</div>
+                        <div class="pkg-price">6,800.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Diamond 2180', 6800)">-</button>
+                            <span class="counter-value" id="qty-Diamond 2180">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Diamond 2180', 6800)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Diamond 5600 -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Diamond 5600', 16870)">
+                        <span class="pkg-badge">2.5% OFF</span>
+                        <img src="https://api.duniagames.co.id/api/product/upload/image/77bc158b-a3cd-4130-9689-7d9de7d90e10.png" alt="Diamond 5600" class="pkg-img">
+                        <div class="pkg-title">Diamond 5600</div>
+                        <div class="pkg-price">16,870.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Diamond 5600', 16870)">-</button>
+                            <span class="counter-value" id="qty-Diamond 5600">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Diamond 5600', 16870)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Diamond 11500 -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Diamond 11500', 37500)">
+                        <span class="pkg-badge">5% OFF</span>
+                        <img src="https://api.duniagames.co.id/api/product/upload/image/77bc158b-a3cd-4130-9689-7d9de7d90e10.png" alt="Diamond 11500" class="pkg-img">
+                        <div class="pkg-title">Diamond 11500</div>
+                        <div class="pkg-price">37,500.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Diamond 11500', 37500)">-</button>
+                            <span class="counter-value" id="qty-Diamond 11500">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Diamond 11500', 37500)">+</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- SECTION 3: LEVEL UP PASSES -->
+                <div class="section-header">
+                    ⭐ Level Up Passes
+                </div>
+                <div class="packages-grid">
+                    
+                    <!-- Level 06 -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Level 06 Pass', 119)">
+                        <img src="https://i.pinimg.com/736x/a9/c3/63/a9c36372dc18569ac7019261e681464c.jpg" alt="Level 06 Pass" class="pkg-img">
+                        <div class="pkg-title">Level 06 Pass</div>
+                        <div class="pkg-price">119.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Level 06 Pass', 119)">-</button>
+                            <span class="counter-value" id="qty-Level 06 Pass">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Level 06 Pass', 119)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Level 10 -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Level 10 Pass', 229)">
+                        <img src="https://i.pinimg.com/736x/a9/c3/63/a9c36372dc18569ac7019261e681464c.jpg" alt="Level 10 Pass" class="pkg-img">
+                        <div class="pkg-title">Level 10 Pass</div>
+                        <div class="pkg-price">229.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Level 10 Pass', 229)">-</button>
+                            <span class="counter-value" id="qty-Level 10 Pass">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Level 10 Pass', 229)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Level 15 -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Level 15 Pass', 229)">
+                        <img src="https://i.pinimg.com/736x/a9/c3/63/a9c36372dc18569ac7019261e681464c.jpg" alt="Level 15 Pass" class="pkg-img">
+                        <div class="pkg-title">Level 15 Pass</div>
+                        <div class="pkg-price">229.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Level 15 Pass', 229)">-</button>
+                            <span class="counter-value" id="qty-Level 15 Pass">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Level 15 Pass', 229)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Level 20 -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Level 20 Pass', 229)">
+                        <img src="https://i.pinimg.com/736x/a9/c3/63/a9c36372dc18569ac7019261e681464c.jpg" alt="Level 20 Pass" class="pkg-img">
+                        <div class="pkg-title">Level 20 Pass</div>
+                        <div class="pkg-price">229.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Level 20 Pass', 229)">-</button>
+                            <span class="counter-value" id="qty-Level 20 Pass">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Level 20 Pass', 229)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Level 25 -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Level 25 Pass', 229)">
+                        <img src="https://i.pinimg.com/736x/a9/c3/63/a9c36372dc18569ac7019261e681464c.jpg" alt="Level 25 Pass" class="pkg-img">
+                        <div class="pkg-title">Level 25 Pass</div>
+                        <div class="pkg-price">229.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Level 25 Pass', 229)">-</button>
+                            <span class="counter-value" id="qty-Level 25 Pass">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Level 25 Pass', 229)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Level 30 -->
+                    <div class="pkg-card" onclick="handleCardClick(event, 'Level 30 Pass', 329)">
+                        <img src="https://i.pinimg.com/736x/a9/c3/63/a9c36372dc18569ac7019261e681464c.jpg" alt="Level 30 Pass" class="pkg-img">
+                        <div class="pkg-title">Level 30 Pass</div>
+                        <div class="pkg-price">329.00 LKR</div>
+                        <div class="counter-box">
+                            <button class="counter-btn" onclick="decreaseQty(event, 'Level 30 Pass', 329)">-</button>
+                            <span class="counter-value" id="qty-Level 30 Pass">0</span>
+                            <button class="counter-btn" onclick="increaseQty(event, 'Level 30 Pass', 329)">+</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: STEP 3 (DYNAMIC CART & PAYMENT METHODS) -->
+            <div class="order-sidebar">
+                <div class="section-header" style="margin-top:0;">
+                    <span class="step-badge">3</span> Your Order
+                </div>
+                
+                <div id="cart-container" class="cart-items-container">
+                    <p class="empty-cart-msg">No items selected yet.<br>Choose a package to see your order total.</p>
+                </div>
+
+                <div class="total-price-box">
+                    <span>Total Amount:</span>
+                    <span id="cart-total">0.00 LKR</span>
+                </div>
+
+                <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout →</button>
+
+                <!-- PAYMENT METHODS SECTION -->
+                <div class="payment-methods-wrapper">
+                    
+                    <!-- 1. EZ Cash Wallet -->
+                    <div class="pay-method-box">
+                        <div class="pay-method-title">
+                            Pay with EZ Cash Wallet
+                            <span style="font-size:10px; color:#94a3b8; font-weight:normal;">Login to see balance</span>
+                        </div>
+                        <div class="pay-banner-img">
+                            <span><i class="fa-solid fa-wallet"></i> Use your M4K Store EZ Cash Wallet for instant top-ups!</span>
+                        </div>
+                        <div class="pay-action-row">
+                            <div class="pay-amount-display" id="payment-total-ez">Rs.0.00</div>
+                            <button class="pay-now-action-btn" onclick="processPayment('EZ Cash')">Pay Now (EZ Cash)</button>
+                        </div>
+                    </div>
+
+                    <div class="or-divider">OR</div>
+
+                    <!-- 2. Genie (Online Payment) -->
+                    <div class="pay-method-box">
+                        <div class="pay-method-title">
+                            Pay with Genie (Online Payment)
+                        </div>
+                        <div class="pay-banner-img">
+                            <span>PAY WITH</span>
+                            <div>
+                                <i class="fa-brands fa-cc-mastercard" style="font-size:18px; margin-right:4px;"></i>
+                                <i class="fa-brands fa-cc-visa" style="font-size:18px; margin-right:4px;"></i>
+                                <i class="fa-brands fa-cc-amex" style="font-size:18px;"></i>
+                            </div>
+                        </div>
+                        <div class="payment-instruction">
+                            Pay Button එක Click කිරීමෙන් විනාඩි 15ක් ඇතුලත ගෙවීම සිදු කල යුතුය !!!
+                        </div>
+                        <div class="terms-check-row">
+                            <input type="checkbox" id="terms-genie" checked>
+                            <label for="terms-genie">I agree to all terms and conditions</label>
+                        </div>
+                        <div class="pay-action-row" style="margin-top:10px;">
+                            <div class="pay-amount-display" id="payment-total-genie">Rs.0.00</div>
+                            <button class="pay-now-action-btn" onclick="processPayment('Genie Card')">Pay Now (Genie)</button>
+                        </div>
+                    </div>
+
+                    <div class="or-divider">OR</div>
+
+                    <!-- 3. Lanka QR (Scan & Pay) -->
+                    <div class="pay-method-box">
+                        <div class="pay-method-title">
+                            Pay with Lanka QR (Scan & Pay)
+                        </div>
+                        <div class="pay-banner-img">
+                            <span>PAY WITH</span>
+                            <span><i class="fa-solid fa-qrcode"></i> LANKA QR</span>
+                        </div>
+                        <div class="payment-instruction">
+                            LANKA QR - ඕනෑම Bank Acc එකකින් QR එක Scan කර ගෙවීම සිදු කල හැක.
+                        </div>
+                        <div class="terms-check-row">
+                            <input type="checkbox" id="terms-qr" checked>
+                            <label for="terms-qr">I agree to all terms and conditions</label>
+                        </div>
+                        <div class="pay-action-row" style="margin-top:10px;">
+                            <div class="pay-amount-display" id="payment-total-qr">Rs.0.00</div>
+                            <button class="pay-now-action-btn" onclick="processPayment('Lanka QR')">Pay Now (QR)</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER SECTION WITH SOCIAL MEDIA ICONS -->
+    <footer class="footer">
+        <a href="index.html">← Back to home</a>
+        
+        <div class="social-links">
+            <a href="https://tiktok.com" target="_blank" class="social-icon" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://youtube.com" target="_blank" class="social-icon" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+
+        <small>© 2026 Gaming M4K Store. All rights reserved.<br>Free Fire is a registered trademark of Garena. Gaming M4K Store is not affiliated.</small>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        const cart = {};
+
+        function handleCardClick(event, name, price) {
+            if (event.target.tagName === 'BUTTON' || event.target.closest('.counter-box')) {
+                return;
+            }
+            changeQty(name, price, 1);
+        }
+
+        function increaseQty(event, name, price) {
+            event.stopPropagation();
+            changeQty(name, price, 1);
+        }
+
+        function decreaseQty(event, name, price) {
+            event.stopPropagation();
+            changeQty(name, price, -1);
+        }
+
+        function changeQty(name, price, change) {
+            if (!cart[name]) {
+                cart[name] = { price: price, qty: 0 };
+            }
+
+            cart[name].qty += change;
+
+            if (cart[name].qty <= 0) {
+                delete cart[name];
+                document.getElementById(`qty-${name}`).innerText = 0;
+            } else {
+                document.getElementById(`qty-${name}`).innerText = cart[name].qty;
+            }
+
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-container');
+            const totalElement = document.getElementById('cart-total');
+            container.innerHTML = '';
+
+            let total = 0;
+            const keys = Object.keys(cart);
+
+            if (keys.length === 0) {
+                container.innerHTML = '<p class="empty-cart-msg">No items selected yet.<br>Choose a package to see your order total.</p>';
+                totalElement.innerText = '0.00 LKR';
+                document.getElementById('payment-total-ez').innerText = 'Rs.0.00';
+                document.getElementById('payment-total-genie').innerText = 'Rs.0.00';
+                document.getElementById('payment-total-qr').innerText = 'Rs.0.00';
+                return;
+            }
+
+            keys.forEach(itemName => {
+                const item = cart[itemName];
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+
+                const itemRow = document.createElement('div');
+                itemRow.className = 'cart-item';
+                itemRow.innerHTML = `
+                    <div>
+                        <span class="cart-item-title">${itemName}</span>
+                        <small style="color:#64748b; display:block;">x${item.qty}</small>
+                    </div>
+                    <div class="cart-item-price">${itemTotal.toLocaleString()} LKR</div>
+                `;
+                container.appendChild(itemRow);
+            });
+
+            const formattedTotal = total.toLocaleString('en-US', {minimumFractionDigits: 2}) + ' LKR';
+            const formattedRsTotal = 'Rs.' + total.toLocaleString('en-US', {minimumFractionDigits: 2});
+
+            totalElement.innerText = formattedTotal;
+            document.getElementById('payment-total-ez').innerText = formattedRsTotal;
+            document.getElementById('payment-total-genie').innerText = formattedRsTotal;
+            document.getElementById('payment-total-qr').innerText = formattedRsTotal;
+        }
+
+        function verifyPlayer() {
+            const playerId = document.getElementById('player-id-input').value.trim();
+            const msgBox = document.getElementById('verify-msg');
+
+            if (playerId.length >= 5 && playerId.length <= 14) {
+                msgBox.style.color = '#16a34a';
+                msgBox.innerText = '✓ Player ID verified successfully!';
+                msgBox.style.display = 'block';
+            } else {
+                msgBox.style.color = '#ef4444';
+                msgBox.innerText = '✕ Invalid Player ID (Must be 5–14 digits).';
+                msgBox.style.display = 'block';
+            }
+        }
+
+        function proceedToCheckout() {
+            const playerId = document.getElementById('player-id-input').value.trim();
+            const keys = Object.keys(cart);
+
+            if (!playerId) {
+                alert('Please enter and verify your Player ID first!');
+                return;
+            }
+
+            if (keys.length === 0) {
+                alert('Please select at least one package before checking out!');
+                return;
+            }
+
+            alert('Order generated successfully! Please choose your preferred payment method below.');
+        }
+
+        function processPayment(methodName) {
+            const playerId = document.getElementById('player-id-input').value.trim();
+            const keys = Object.keys(cart);
+
+            if (!playerId) {
+                alert('Please enter and verify your Player ID first!');
+                return;
+            }
+
+            if (keys.length === 0) {
+                alert('Please select at least one package first!');
+                return;
+            }
+
+            alert(`Order generated successfully via ${methodName}! Diamonds will be credited to Player ID: ${playerId} upon confirmation.`);
+        }
+    </script>
+</body>
+</html>

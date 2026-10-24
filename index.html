@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gaming M4K Diamond Store | Game Top-Ups</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        /* CSS Overrides & Custom Animations for M4K Theme */
+        
+        /* 1. Dynamic Hero Background Image */
+        .hero-m4k {
+            background: 
+                radial-gradient(circle at 12% 52%, rgba(13, 71, 161, 0.75) 0 7%, transparent 30%),
+                radial-gradient(circle at 85% 25%, rgba(10, 37, 64, 0.75) 0, transparent 35%),
+                linear-gradient(145deg, rgba(3, 16, 33, 0.82), rgba(1, 5, 10, 0.85) 62%, rgba(2, 11, 23, 0.82)),
+                url('https://images.wallpapersden.com/image/download/free-fire-2023-gaming_bmZqaW6UmZqaraWkpJRmbmdlrWZlbWU.jpg') center/cover no-repeat !important;
+        }
+
+        /* 2. Header Brand Logo */
+        .brand-logo-img {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #42a5f5;
+            margin-right: 8px;
+        }
+
+        /* 3. Stats Hover Animations */
+        .stats .stat {
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats .stat:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(66, 165, 245, 0.25);
+            border-color: #42a5f5;
+            background: rgba(13, 71, 161, 0.15);
+        }
+
+        .stats .stat:hover span {
+            transform: rotate(15deg) scale(1.2);
+            color: #42a5f5;
+            transition: transform 0.3s ease;
+        }
+
+        /* 4. Custom Category Card Images & Badges Support */
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px 12px 0 0;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Green Coming Soon Badge */
+        .badge-coming-soon {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #2e7d32;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+            border: 1px solid #4caf50;
+        }
+
+        /* Disabled Card Links for Coming Soon items */
+        .card-link.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            pointer-events: none;
+            color: #888 !important;
+        }
+
+        /* 5. Footer Social Icons Styling */
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-socials a {
+            color: #90caf9;
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-socials a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* 6. Mobile Optimization Rules */
+        @media (max-width: 768px) {
+            .category-card-img {
+                height: 150px;
+            }
+            .hero-copy h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <a class="brand" href="index.html">
+            <img src="https://i.pinimg.com/736x/51/2d/2f/512d2fa49ba4a8b4f24f50e690d8ded7.jpg" alt="Gaming M4K Logo" class="brand-logo-img">
+            <span>GAMING <b>M4K</b><small>DIAMOND STORE</small></span>
+        </a>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        <nav class="nav">
+            <a class="active" href="index.html">Home</a>
+            <a href="shop.html">Store</a>
+            <a href="topup.html">Quick Top-Up</a>
+            <a href="giveaway.html">Giveaways</a>
+            <a href="login.html">Login</a>
+            <a class="nav-cta" href="register.html">Create account</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION WITH M4K BACKGROUND IMAGE -->
+        <section class="hero hero-m4k">
+            <div class="hero-copy">
+                <span class="eyebrow">INSTANT DELIVERY · BEST RATES · SECURE</span>
+                <h1>LEVEL UP YOUR<br><em>GAME.</em></h1>
+                <p>Fast, simple game top-ups and digital rewards at <b>Gaming M4K Diamond Store</b>.</p>
+                <div class="hero-actions">
+                    <a class="btn primary" href="shop.html">Browse store <span>↗</span></a>
+                    <a class="btn glass" href="topup.html">Quick top-up <span>⚡</span></a>
+                </div>
+                <div class="trust-row">
+                    <span>✓ Secure checkout</span>
+                    <span>✓ Friendly support</span>
+                    <span>✓ Clear pricing</span>
+                </div>
+            </div>
+            <div class="hero-art">
+                <div class="orb orb-one"></div>
+                <div class="orb orb-two"></div>
+                <div class="diamond-art">◆</div>
+                <div class="floating-card">
+                    <span class="mini-icon">✦</span>
+                    <div>
+                        <b>Top-up made easy</b>
+                        <small>Choose · Verify · Checkout</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS SECTION WITH HOVER ANIMATION -->
+        <section class="stats">
+            <div class="stat">
+                <span>♙</span>
+                <strong>80K+</strong>
+                <small>Community visits*</small>
+            </div>
+            <div class="stat">
+                <span>✓</span>
+                <strong>Secure</strong>
+                <small>Order-first workflow</small>
+            </div>
+            <div class="stat">
+                <span>⚡</span>
+                <strong>Quick</strong>
+                <small>Simple top-ups</small>
+            </div>
+        </section>
+
+        <!-- CATEGORIES / GAMES SECTION -->
+        <section class="section">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">PICK YOUR GAME</span>
+                    <h2>Explore store categories</h2>
+                    <p>Choose a game service to get started.</p>
+                </div>
+                <a class="text-link" href="shop.html">View all products ↗</a>
+            </div>
+
+            <div class="category-grid">
+                
+                <!-- 1. Free Fire Top-Up Card (ACTIVE) -->
+                <a class="category-card" href="topup.html">
+                    <img src="https://i.pinimg.com/736x/fb/02/e4/fb02e4bc602d73fbe3c1d2724c58f91d.jpg" alt="Free Fire" class="category-card-img">
+                    <span class="tag">SG / MY</span>
+                    <h3>Free Fire Top-Up</h3>
+                    <p>In-game diamonds with instant delivery.</p>
+                    <b class="card-link">Top up now <span>→</span></b>
+                </a>
+
+                <!-- 2. PUBG Mobile Card (COMING SOON) -->
+                <div class="category-card">
+                    <span class="badge-coming-soon">Coming Soon</span>
+                    <img src="https://i.pinimg.com/736x/d7/00/35/d700358872ea04fd5639226cd072d148.jpg" alt="PUBG Mobile" class="category-card-img">
+                    <span class="tag">GLOBAL</span>
+                    <h3>PUBG Mobile</h3>
+                    <p>Get UC instantly for your account.</p>
+                    <b class="card-link disabled">Top up now <span>→</span></b>
+                </div>
+
+                <!-- 3. Call of Duty Mobile Card (COMING SOON) -->
+                <div class="category-card">
+                    <span class="badge-coming-soon">Coming Soon</span>
+                    <img src="https://i.pinimg.com/736x/3f/44/fc/3f44fc4cb5d80d3c1cedd69a6f3c3931.jpg" alt="Call of Duty Mobile" class="category-card-img">
+                    <span class="tag">COD POINTS</span>
+                    <h3>Call of Duty Mobile</h3>
+                    <p>Top-up CP for battle passes and crates.</p>
+                    <b class="card-link disabled">Top up now <span>→</span></b>
+                </div>
+
+                <!-- 4. Blood Strike Card (COMING SOON) -->
+                <div class="category-card">
+                    <span class="badge-coming-soon">Coming Soon</span>
+                    <img src="https://i.pinimg.com/736x/09/ac/a8/09aca8fde613f9b90b098f2fe91cfa45.jpg" alt="Blood Strike" class="category-card-img">
+                    <span class="tag">GOLD</span>
+                    <h3>Blood Strike</h3>
+                    <p>Fast Gold top-up for Blood Strike players.</p>
+                    <b class="card-link disabled">Top up now <span>→</span></b>
+                </div>
+
+                <!-- 5. Free Fire Giveaway Card (COMING SOON) -->
+                <div class="category-card">
+                    <span class="badge-coming-soon">Coming Soon</span>
+                    <img src="https://i.pinimg.com/736x/a9/c3/63/a9c36372dc18569ac7019261e681464c.jpg" alt="Free Fire Giveaway" class="category-card-img">
+                    <span class="tag">REWARDS</span>
+                    <h3>Free Fire Giveaway</h3>
+                    <p>See community rewards and giveaway updates.</p>
+                    <b class="card-link disabled">Top up now <span>→</span></b>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BANNER SECTION -->
+        <section class="banner">
+            <div>
+                <span class="eyebrow">NEW TO GAMING M4K?</span>
+                <h2>Your next top-up starts here.</h2>
+                <p>Create an account to keep your orders organised.</p>
+            </div>
+            <a class="btn primary" href="register.html">Join the store ↗</a>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer">
+        <a class="brand" href="index.html">
+            <img src="https://i.pinimg.com/736x/51/2d/2f/512d2fa49ba4a8b4f24f50e690d8ded7.jpg" alt="Gaming M4K Logo" class="brand-logo-img">
+            <span>GAMING <b>M4K</b><small>DIAMOND STORE</small></span>
+        </a>
+        <p>Independent digital top-up store concept by Gaming M4K Store. Game trademarks belong to their respective owners.</p>
+        
+        <!-- Social Media Links -->
+        <div class="footer-socials">
+            <a href="https://facebook.com" target="_blank">Facebook</a> • 
+            <a href="https://instagram.com" target="_blank">Instagram</a> • 
+            <a href="https://whatsapp.com" target="_blank">WhatsApp</a> • 
+            <a href="https://t.me" target="_blank">Telegram</a>
+        </div>
+
+        <div style="margin-top: 15px;">
+            <a href="shop.html">Store</a>
+            <a href="topup.html">Top-Up</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <small>© 2026 Gaming M4K Store. All rights reserved.</small>
+    </footer>
+
+    <script src="assets/app.js"></script>
+</body>
+</html>
